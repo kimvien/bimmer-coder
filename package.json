@@ -1,0 +1,23 @@
+{
+  "name": "bimmer-coder",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Moteur de codage véhicule BMW/Mini (clone fonctionnel de BimmerCode) : ELM327/ENET, ISO-TP, UDS, codage FDL/NCD, simulateur.",
+  "type": "module",
+  "engines": {
+    "node": ">=22.6"
+  },
+  "bin": {
+    "bimmer-coder": "./src/cli.ts"
+  },
+  "scripts": {
+    "test": "node --test --experimental-strip-types test/*.test.ts",
+    "cli": "node --experimental-strip-types src/cli.ts",
+    "sim": "node --experimental-strip-types src/cli.ts scan --transport sim",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.5",
+    "typescript": "^5.6.3"
+  }
+}

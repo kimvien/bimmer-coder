@@ -1,0 +1,64 @@
+{
+  "_lisez-moi": [
+    "Format d'un catalogue de réglages externe. C'est ici qu'on met de VRAIS offsets,",
+    "établis pour vos calculateurs à partir de leur description (CAFD/FDL) ou par",
+    "comparaison de blocs de codage avant/après modification par un outil de référence.",
+    "Mettez verified: true seulement après avoir confirmé le diff sur votre véhicule.",
+    "Utilisation : bimmer-coder apply <id> <choix> --catalog exemples/catalogue-f30.json"
+  ],
+  "tweaks": [
+    {
+      "id": "exemple-vitesse-numerique-f30",
+      "label": "Vitesse numérique au combiné (F30)",
+      "description": "Remplacez l'adresse, la taille et les offsets par ceux de votre KOMBI.",
+      "category": "affichage",
+      "module": "KOMBI",
+      "appliesTo": { "families": ["F"], "chassis": ["F30", "F31", "F34"] },
+      "risk": "faible",
+      "requiresReset": true,
+      "verified": false,
+      "source": "à compléter : relevé sur votre véhicule",
+      "choices": [
+        {
+          "id": "desactive",
+          "label": "Désactivé",
+          "changes": [
+            { "location": { "container": { "kind": "memory", "address": 12288, "size": 16 }, "byteOffset": 1, "bitOffset": 0, "bitLength": 2 }, "value": 0 }
+          ]
+        },
+        {
+          "id": "active",
+          "label": "Activé",
+          "changes": [
+            { "location": { "container": { "kind": "memory", "address": 12288, "size": 16 }, "byteOffset": 1, "bitOffset": 0, "bitLength": 2 }, "value": 1 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "exemple-reglage-sur-did",
+      "label": "Réglage porté par un DID (et non un bloc mémoire)",
+      "category": "confort",
+      "module": "FEM_BODY",
+      "appliesTo": { "families": ["F"] },
+      "risk": "faible",
+      "verified": false,
+      "choices": [
+        {
+          "id": "non",
+          "label": "Non",
+          "changes": [
+            { "location": { "container": { "kind": "did", "did": 12544 }, "byteOffset": 0, "bitOffset": 0, "bitLength": 1 }, "value": 0 }
+          ]
+        },
+        {
+          "id": "oui",
+          "label": "Oui",
+          "changes": [
+            { "location": { "container": { "kind": "did", "did": 12544 }, "byteOffset": 0, "bitOffset": 0, "bitLength": 1 }, "value": 1 }
+          ]
+        }
+      ]
+    }
+  ]
+}

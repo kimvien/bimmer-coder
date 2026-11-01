@@ -1,0 +1,27 @@
+{
+  "expo": {
+    "name": "Bimmer Coder",
+    "slug": "bimmer-coder",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+    "ios": {
+      "bundleIdentifier": "app.exemple.bimmercoder",
+      "infoPlist": {
+        "NSBluetoothAlwaysUsageDescription": "Pour dialoguer avec l'adaptateur OBD branché sur le véhicule.",
+        "UIBackgroundModes": ["bluetooth-central"]
+      }
+    },
+    "android": {
+      "package": "app.exemple.bimmercoder",
+      "permissions": [
+        "android.permission.BLUETOOTH_SCAN",
+        "android.permission.BLUETOOTH_CONNECT",
+        "android.permission.ACCESS_FINE_LOCATION"
+      ]
+    },
+    "plugins": [
+      ["react-native-ble-plx", { "isBackgroundEnabled": false, "modes": ["central"] }]
+    ]
+  }
+}
